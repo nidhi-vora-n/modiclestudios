@@ -1,0 +1,243 @@
+.container {
+    /* width: 100%; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+}
+
+.overlapping-rows {
+    position: relative;
+    width: 100%;
+    /* height: 400px; */
+}
+
+.overlapping-rows .row {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: black;
+    color: #fff;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0 20px; /* Adds padding around the row content */
+    flex-wrap: wrap;
+    margin: -10px; /* Negative margin to offset padding */
+}
+
+/* Column widths */
+.overlapping-rows .col-lg-6 {
+    flex: 0 0 50%; /* Takes 50% of the row */
+    max-width: 50%;
+    text-align: left;
+    display: flex;
+    align-items: center; /* Aligns content vertically within the column */
+    
+    position: relative;
+}
+
+.overlapping-rows .col-lg-3 {
+    flex: 0 0 25%; /* Takes 25% of the row */
+    max-width: 25%;
+    text-align: center;
+}
+
+
+.overlapping-rows .row h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-family: "Montserrat", serif;
+    color: #fdb927; 
+    white-space: nowrap; 
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+.overlapping-rows .row:hover h1 {
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.overlapping-rows .row p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap; /* Prevent wrapping */
+    color: #fff;
+}
+
+.overlapping-rows .row h2 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+    white-space: nowrap; /* Prevent wrapping */
+    z-index: 1;
+}
+
+
+#row1 {
+    top: 0;
+}
+
+#row2 {
+    top: 120px;
+}
+
+#row3 {
+    top: 240px;
+}
+
+#row4 {
+    top: 360px;
+}
+
+#row5 {
+    top: 480px;
+}
+
+.overlapping-rows .row:hover {
+    height: 200px; /* Expand height on hover */
+    background-color: #212121;
+    opacity: 1;
+}
+
+.overlapping-rows .row:hover ~ .row {
+    top: calc(var(--row-top) + 80px);
+}
+
+.overlapping-rows .row h1 {
+    color: #fff;
+    font-size: 7rem;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-family: "Montserrat", serif;
+    margin-top: 30px;
+}
+.overlapping-rows .row:hover h1 {
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+    -webkit-background-clip: text; /* Makes the gradient clip to the text */
+    -webkit-text-fill-color: transparent; /* Makes the text itself transparent to reveal the gradient */
+}
+
+
+
+/* When row1 is hovered, move all the following rows down */
+#row1:hover ~ #row2 {
+    top: calc(120px + 80px);  /* Increase the top value by 80px to move them down */
+}
+
+#row1:hover ~ #row3 {
+    top: 320px; /* Push row3 down (original top + 80px) */
+}
+
+#row1:hover ~ #row4 {
+    top: 440px; /* Push row4 down (original top + 80px) */
+}
+
+#row1:hover ~ #row5 {
+    top: 560px; /* Push row4 down (original top + 80px) */
+}
+
+
+
+
+
+
+#row2:hover ~ #row3 {
+    top: 320px; /* Push row3 down (original top + 80px) */
+}
+
+#row2:hover ~ #row4 {
+    top: 440px; /* Push row4 down (original top + 80px) */
+}
+
+#row2:hover ~ #row5 {
+    top: 560px; /* Push row4 down (original top + 80px) */
+}
+
+
+#row3:hover ~ #row4 {
+    top: 440px; /* Push row4 down (original top + 80px) */
+}
+
+#row3:hover ~ #row5 {
+    top: 560px; /* Push row4 down (original top + 80px) */
+}
+
+
+
+
+#row4:hover ~ #row5 {
+    top: 560px; /* Push row4 down (original top + 80px) */
+}
+@media (max-width: 768px) {
+    /* Stack rows vertically */
+    .overlapping-rows .row {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+        padding: 10px;
+        position: relative; /* Ensure proper stacking */
+        height: auto; /* Disable height transition */
+        margin-bottom: 10px; /* Space between rows */
+    }
+
+    /* .col-lg-6 takes one full row */
+    .overlapping-rows .col-lg-6 {
+        max-width: 100%;
+        flex: 0 0 100%; /* Full width for .col-lg-6 */
+    }
+
+    /* .col-lg-3 takes another full row */
+    .overlapping-rows .col-lg-3 {
+        max-width: 100%;
+        flex: 0 0 100%; /* Full width for each .col-lg-3 */
+        margin-top: 10px; /* Space between .col-lg-3 columns */
+    }
+
+    /* Adjust heading and text for mobile */
+    .overlapping-rows .row h1 {
+        background: linear-gradient(90deg, #ffd74e, #e5a837);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 1.5rem; /* Reduce font size on mobile */
+        white-space: nowrap;
+    }
+    .overlapping-rows .row h1:hover{
+        background: linear-gradient(90deg, #ffd74e, #e5a837);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 1.5rem; /* Reduce font size on mobile */
+        white-space: nowrap;
+    }
+    .overlapping-rows .row h2 {
+        font-size: 1.2rem; /* Reduce font size on mobile */
+    }
+
+    /* Remove hover effect for mobile */
+    .overlapping-rows .row:hover {
+        transform: none; /* Remove translation effect */
+        background-color: #000; /* Keep background consistent */
+        height:fit-content
+    }
+
+    /* Remove overlapping and fix stacking */
+    .overlapping-rows .row {
+        position: static; /* Remove absolute positioning to avoid overlap */
+        top: auto; /* Reset 'top' value */
+    }
+
+  
+    /* Ensure no height change on hover */
+    .overlapping-rows .row {
+        height: auto; /* Make sure height doesn't change */
+    }
+}

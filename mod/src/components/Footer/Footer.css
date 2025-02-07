@@ -1,0 +1,115 @@
+foot-container{
+    width:100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.foot-head h1{
+    font-size: 7rem;
+    text-align: center;
+    font-family: "Montserrat", serif;
+    color: white;
+    line-height: 7rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+.contact-circle{
+    height: 180px;
+    width: 180px;
+    /* /* background-color: white; */
+     background: linear-gradient(90deg, #ffd74e, #e5a837);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left:73% ;
+    /* margin-bottom: 50%; */
+    margin-top: -20%;
+    position: absolute;
+    z-index: 2; /* Ensures it overlaps the text */
+}
+.contact-circle a{
+    margin-top: 30%;
+    text-decoration: none;
+    font-family: "Montserrat", serif;
+    font-size:32px;
+    color: white;
+    font-weight: 600;
+}
+.foot-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    /* padding-left: 60px; */
+    margin: 0 auto;
+}
+.foot-2 img{
+    width:200px;
+}
+.foot-2 .foot-para{
+    font-size: 16px;
+    font-weight: normal;
+    color: white;
+    text-align: start;
+    font-family: "Montserrat", serif;
+ 
+}
+.foot-3{
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    /* padding-left: 60px; */
+    margin: 0 auto;
+    border-top:1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 60px;
+}
+.foot-3  .foot-para{
+    font-size: 16px;
+    font-weight: normal;
+    color: white;
+    text-align: start;
+    font-family: "Montserrat", serif;
+    text-align: center;
+}
+.foot-icons{
+     align-items: center;
+     text-align: center;
+     width: 100%;
+     margin-top: 40px;
+}
+.foot-icons a{
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    padding: 20px 25px;
+    border-radius: 50px;
+    color: white;
+    margin-right: 10px;
+}
+@media (max-width: 768px){
+    .contact-circle{
+        display: none;
+    }
+    .foot-2{
+        flex-direction: column;
+    }
+    .foot-2 img{
+        margin-right: 80px;
+    }
+    .foot-2 .foot-para{
+       margin-right: 30px;
+    }
+    .foot-head h1{
+        font-size: 24px;
+        line-height: 2rem;
+        margin-bottom: 30px;
+        background: linear-gradient(90deg, #ffd74e, #e5a837);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+    }
+}

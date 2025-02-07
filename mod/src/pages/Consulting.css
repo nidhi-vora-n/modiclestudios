@@ -1,0 +1,111 @@
+.consult-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 40px;
+    /* height: 100vh; */
+    /* margin-right: 20px; */
+}
+.consult-img img{
+    width:500px
+}
+/* Accordion container */
+.accordion-container h1{
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Montserrat", serif;
+}
+.accordion-container p{
+    color:white;
+    font-family: "Montserrat", serif;
+    font-size: 32px;
+    font-weight: 600;
+}
+.accordion-container {
+    margin-left: 40px;
+    border-bottom:1px solid rgba(255, 255, 255, 0.3);
+  }
+  /* Individual accordion item */
+  .accordion-item {
+    border-bottom:1px solid rgba(255, 255, 255, 0.3);
+  }
+  /* Accordion header */
+  .accordion-header {
+    color: white;
+    padding: 15px 30px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s ease;
+    font-family: "Montserrat", serif;
+    display: flex;
+    justify-content: space-between;
+  }
+  .accordion-header:hover {
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+  }
+  /* Active header styling */
+  .accordion-header.active {
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+  }
+  .accordion-header.active span{
+    display: none;
+  }
+  /* Accordion body */
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+  }
+  /* Open accordion body styling */
+  .accordion-body.open {
+    max-height: 300px; 
+    padding: 15px 20px;
+  }
+  /* Paragraph inside body */
+  .accordion-body p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 2;
+    color: white;
+    font-weight: normal;
+    font-family: "Montserrat", serif;
+  }
+  /* Remove last border */
+  .accordion-item:last-child {
+    border-bottom: none;
+  }
+  @media (max-width: 768px){
+    .consult-container{
+        flex-direction: column;
+        width: 100%;
+    }
+    .consult-img img{
+        width: 300px;
+    };
+    .accordion-container h1{
+        font-size: 16px;
+    }
+    .accordion-container p{
+        font-size: 18px;
+    }
+    .accordion-container{
+        width: 300px;
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+    .accordion-header{
+        font-size: 16px;
+    }
+    .accordion-body p{
+        font-size: 16px;
+    }
+    .accordion-header.active span{
+        display: none;
+      }
+  }

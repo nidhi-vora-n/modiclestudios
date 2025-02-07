@@ -1,0 +1,84 @@
+.client-container{
+     /* width: 100%; */
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 20px;
+     height: auto;
+     display: flex;
+     flex-direction: row;
+}
+
+.client-container-left{
+    /* align-items: center; */
+    margin-top: 10%;
+}
+
+.client-container-left,
+.client-container-right {
+    flex: 1; /* Ensures each takes up equal space */
+    padding: 10px; /* Optional: Adds padding for better readability */
+}
+
+.client-container-left p{
+    line-height: 2rem;
+}
+
+.client-container h1,
+.client-container p{
+    color:#fff;
+}
+
+.client-container h1{
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Montserrat", serif;
+}
+
+/* Grid container */
+.client-grid {
+    display: flex;
+    flex-wrap: wrap;         /* Allows items to wrap onto the next line */
+    gap: 20px;               /* Adds space between grid items */
+}
+
+.client-img {
+    display: flex;              /* Make the container a flexbox */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    width: calc(33.33% - 20px); /* Maintain the 3x3 grid width */
+    height: 150px;              /* Set the height of the grid item */
+    border: 1px solid rgba(255, 255, 255, 0.2);    
+    overflow: hidden;           /* Prevent overflow for large images */
+}
+
+
+/* Client Image Container */
+.client-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(33.33% - 20px);
+    height: 150px;
+     /* Optional: default background */
+    overflow: hidden; /* Ensure the image doesn't overflow */
+    transition: all 0.3s ease;
+}
+
+/* Apply grayscale filter to the image */
+.client-img img {
+    max-width: 80%;            
+    max-height: 100%;
+    object-fit: cover; /* Maintain aspect ratio while filling the container */
+    filter: grayscale(100%); /* Make the image completely gray */
+    transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect: Remove grayscale filter */
+.client-img:hover img {
+    filter: grayscale(0%); /* Restore original colors */
+}
+
+

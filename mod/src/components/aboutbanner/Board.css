@@ -1,0 +1,100 @@
+.board-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+  }
+  .board-container .card {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .board-container .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    /* overlay: rgba(0, 0, 0,0.8); */
+  }
+  .board-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0,0.8);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .board-container .card:hover .overlay {
+    opacity: 1;
+  }
+  .board-container .content h2 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ffd74e, #e5a837) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    margin: 0;
+    font-family: "Montserrat", serif; 
+  }
+  .board-container .content h3 {
+    font-size: 2rem;
+    margin: 5px 0;
+    font-family: "Montserrat", serif; 
+  }
+  .board-container .content p {
+    font-size: 16px;
+    line-height: 1.5rem;
+    text-align: center;
+    margin: 10px 0;
+    font-family: "Montserrat", serif; 
+  }
+
+  .board-head{
+    background: linear-gradient(90deg, #ffd74e, #e5a837) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    font-size: 24px;
+    font-family: "Montserrat", serif; 
+    text-align: center;
+    font-weight: 700;
+    margin-top:160px;
+  }
+
+  @media (max-width: 768px){
+    .board-container {
+        flex-direction: column;
+    }
+    .board-container .card{
+        width: 300px;
+        height: 400px;
+    }
+    .board-container .content h2 {
+        font-size: 1rem;
+    }
+    .board-container .content h3 {
+        font-size: 16px;
+    }
+    .board-container .content p {
+        font-size: 14px;
+        line-height: normal;
+    }
+    .board-container .content{
+        height: 20vh;
+        margin-top: -200px;
+    }
+  }
+ 

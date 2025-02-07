@@ -1,0 +1,71 @@
+.banner-section {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Adjust the height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .banner-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 5, 5, 0.6); /* Yellow with transparency */
+    z-index: 1; /* Ensure the overlay is above the video but below the text */
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Keep the video behind the overlay */
+  }
+  
+  .banner-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 2; /* Keep the text above the overlay */
+  }
+  
+  .breadcrumb {
+    font-size: 24px;
+    font-family: "Montserrat", serif;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+  }
+  
+  .banner-content h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    margin: 0;
+    font-family: "Montserrat", serif;
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .breadcrumb span{
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffd74e, #e5a837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (max-width: 768px){
+    .banner-content h1{
+      font-size: 2rem;
+    }
+
+    .banner-content p{
+      font-size: 1rem;
+    }
+  }
