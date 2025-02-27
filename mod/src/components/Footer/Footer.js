@@ -28,27 +28,27 @@ const Footer = () => {
 
       <div className="foot-2">
         <img src="../../assets/images/mod-new.png" alt="Logo" />
-        <h2 className="foot-para">
+        <h2 className="foot-para foot-para-loc">
           <strong>LOCATION</strong>
-          <br></br>Office No 706, Filix Tower, Bhandup, Mumbai - 400078
+          <br></br><a href="https://maps.app.goo.gl/BHv5qKPYcKgvUwWr9" style={{textDecoration:"none", color:"white"}}>Office No 706, Filix Tower, Bhandup, Mumbai - 400078</a>
         </h2>
         <h2 className="foot-para">
           <strong>INQUIRY</strong>
-          <br></br>hello@modiclestudioss.com<br></br>+91 91366 32429
+          <br></br>hello@modiclestudios.com<br></br>+91 91366 32429
         </h2>
       </div>
 
       <div className="foot-icons">
-        <a href="">
+        <a href="https://www.instagram.com/modiclestudios/" target="_blank">
           <FontAwesomeIcon icon={faInstagram} />
         </a>
-        <a href="">
+        <a href="https://www.facebook.com/modiclestudios" target="_blank">
           <FontAwesomeIcon icon={faFacebook} />
         </a>
-        <a href="">
+        <a href="https://www.youtube.com/@modiclestudios9852" target="_blank">
           <FontAwesomeIcon icon={faYoutube} />
         </a>
-        <a href="">
+        <a href="https://www.linkedin.com/company/modicle-studios/" target="_blank">
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
       </div>

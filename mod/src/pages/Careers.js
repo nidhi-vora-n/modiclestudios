@@ -1,118 +1,102 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Careers.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHomeUser,
-  faPaperPlane,
-  faShare,
-  faShareAlt,
-  faShareFromSquare,
-  faShareNodes,
-} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { faShare } from "@fortawesome/free-solid-svg-icons";
+import AboutBanner from "../components/aboutbanner/AboutBanner";
+import axios from "axios";
 
 const Careers = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+    resume: null,
+  });
+
+  const [fileName, setFileName] = useState("No file chosen");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFileName(file ? file.name : "No file chosen");
+    setFormData({ ...formData, resume: file });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message || !formData.resume) {
+      setStatusMessage("All fields and resume are required!");
+      return;
+    }
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("firstName", formData.firstName);
+    formDataToSend.append("lastName", formData.lastName);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("phone", formData.phone);
+    formDataToSend.append("message", formData.message);
+    formDataToSend.append("resume", formData.resume);
+
+    try {
+      const response = await axios.post("http://localhost:5000/apply-job", formDataToSend, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      setStatusMessage(response.data.message);
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "", resume: null });
+      setFileName("No file chosen");
+    } catch (error) {
+      setStatusMessage(error.response?.data?.error || "Error submitting application");
+    }
+  };
+
   return (
     <>
-      <div className="careers-conatiner">
-        <div className="careers-head">
-          <img src="../../assets/images/careers-banner.jpg"></img>
-        </div>
-        <div className="breadcrumbs-content">
-          <p className="breadcrumb">
-            <FontAwesomeIcon icon={faHomeUser} />
-            <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-              {" "}
-              Home
-            </Link>{" "}
-            &gt; <span> Careers</span>
-          </p>
-          <h1>CAREERS</h1>
-        </div>
-      </div>
+      <AboutBanner title="CAREERS" />
+      <div className="careers-conatiner"></div>
       <div className="careers-mid-container">
         <div className="careers-left">
-          <img src="../../assets/images/yellow.png" alt="Background" />
-          <img src="../../assets/images/career-human.png" alt="Overlay" />
+          <div className="gradient-circle"></div>
+          <h1>GROW WITH <br /> US!</h1>
         </div>
         <div className="careers-right">
           <h3 className="form-header">Build your Career</h3>
           <h1 className="form-title">Send your Resume</h1>
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group form-row">
-              <input
-                type="text"
-                placeholder="First Name"
-                className="form-input"
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="form-input"
-              />
+              <input type="text" name="firstName" placeholder="First Name" className="form-input" value={formData.firstName} onChange={handleChange} />
+              <input type="text" name="lastName" placeholder="Last Name" className="form-input" value={formData.lastName} onChange={handleChange} />
             </div>
             <div className="form-row">
-              <input type="email" placeholder="Email*" className="form-input" />
-              <input type="tel" placeholder="Phone" className="form-input" />
+              <input type="email" name="email" placeholder="Email*" className="form-input" value={formData.email} onChange={handleChange} />
+              <input type="tel" name="phone" placeholder="Phone" className="form-input" value={formData.phone} onChange={handleChange} />
             </div>
             <div className="form-group">
-              <label htmlFor="resume-upload" className="form-label">
-                Upload Resume
-              </label>
+              <label htmlFor="resume-upload" className="form-label" style={{cursor:"pointer"}}>Upload Resume</label>
               <div style={{ position: "relative" }}>
-                <label
-                  htmlFor="resume-upload"
-                  style={{
-                    background: "linear-gradient(90deg, #ffd74e, #e5a837)",
-                    color: "#000",
-                    padding: "10px 20px",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                    display: "inline-block",
-                    marginTop: "14px",
-                    fontFamily: "Montserrat, serif",
-                  }}
-                >
-                  Choose File
+                <label htmlFor="resume-upload" className="upload-btn" style={{color:"white", marginLeft:"10px", marginTop:"10px",fontFamily:"Montserrat"}}>
+                  Choose File :
                 </label>
-                <span
-                  id="file-chosen"
-                  style={{
-                    marginLeft: "10px",
-                    color: "#fff",
-                    fontFamily: "Montserrat, serif",
-                  }}
-                >
-                  No file chosen
-                </span>
-                <input
-                  type="file"
-                  id="resume-upload"
-                  className="form-input"
-                  style={{
-                    display: "none",
-                  }}
-                  onChange={(e) => {
-                    const fileName =
-                      e.target.files[0]?.name || "No file chosen";
-                    document.getElementById("file-chosen").textContent =
-                      fileName;
-                  }}
-                />
+                <span id="file-chosen" style={{color:"#ffd74e", fontFamily:"Montserrat"}}>{fileName}</span>
+                <input type="file" id="resume-upload" className="form-input" style={{ display: "none" }} onChange={handleFileChange} />
               </div>
             </div>
-
             <div className="form-group">
-              <textarea
-                placeholder="Tell Us About Project *"
-                className="form-textarea"
-              ></textarea>
+              <textarea name="message" placeholder="Tell Us About Project *" className="form-textarea" value={formData.message} onChange={handleChange}></textarea>
             </div>
-
             <button type="submit" className="form-button">
               <FontAwesomeIcon icon={faShare} style={{ marginRight: "10px" }} />
               Submit
             </button>
+            {statusMessage && <p className="status-message">{statusMessage}</p>}
           </form>
         </div>
       </div>

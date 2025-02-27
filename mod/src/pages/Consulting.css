@@ -1,111 +1,146 @@
-.consult-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 40px;
-    /* height: 100vh; */
-    /* margin-right: 20px; */
+.consult-container {
+  position: relative;
+  /* max-height: 100vh; */
+  width: 100%;
+  max-width: 1200px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+  /* margin-top: 400px; */
+  /* height: 100vh; */
+
+  /* margin-right: 20px; */
 }
-.consult-img img{
-    width:500px
+.consult-img img {
+  width: 500px;
 }
 /* Accordion container */
-.accordion-container h1{
-    background: linear-gradient(90deg, #ffd74e, #e5a837);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: "Montserrat", serif;
+.consulting-accordion-container h1 {
+  background: linear-gradient(90deg, #ffd74e, #e5a837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Montserrat", serif;
 }
-.accordion-container p{
-    color:white;
-    font-family: "Montserrat", serif;
-    font-size: 32px;
-    font-weight: 600;
+.consulting-accordion-container p {
+  color: white;
+  font-family: "Montserrat", serif;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: -12px;
 }
-.accordion-container {
-    margin-left: 40px;
-    border-bottom:1px solid rgba(255, 255, 255, 0.3);
+.consulting-accordion-container {
+  margin-left: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: -20px;
+}
+/* Individual accordion item */
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+/* Accordion header */
+.accordion-header {
+  color: white;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+  font-family: "Montserrat", serif;
+  display: flex;
+  justify-content: space-between;
+}
+.accordion-header:hover {
+  background: linear-gradient(90deg, #ffd74e, #e5a837);
+}
+/* Active header styling */
+.accordion-header.active {
+  background: linear-gradient(90deg, #ffd74e, #e5a837);
+  font-size: 18px;
+}
+.accordion-header.active span {
+  font-size: 24px; /* Increase size */
+  font-weight: bold;
+  color: black; /* Ensure it's visible */
+  margin-left: auto;
+  display: inline-block; /* Ensure it's not hidden */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Accordion body */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
+}
+/* Open accordion body styling */
+.accordion-body.open {
+  max-height: 300px;
+  padding: 15px 20px;
+}
+/* Paragraph inside body */
+.accordion-body p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 2;
+  color: white;
+  font-weight: normal;
+  font-family: "Montserrat", serif;
+}
+/* Remove last border */
+.accordion-item:last-child {
+  border-bottom: none;
+}
+@media (max-width: 768px) {
+  .consult-container {
+    flex-direction: column;
+    /* width: 100%; */
   }
-  /* Individual accordion item */
-  .accordion-item {
-    border-bottom:1px solid rgba(255, 255, 255, 0.3);
+  .consult-img img {
+    width: 300px;
   }
-  /* Accordion header */
+  .consulting-accordion-container h1 {
+    font-size: 16px;
+  }
+  .consulting-accordion-container p {
+    font-size: 18px;
+  }
+  .consulting-accordion-container {
+    width: 300px;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
   .accordion-header {
-    color: white;
-    padding: 15px 30px;
-    cursor: pointer;
-    font-size: 24px;
-    transition: background-color 0.3s ease;
-    font-family: "Montserrat", serif;
-    display: flex;
-    justify-content: space-between;
+    font-size: 16px;
   }
-  .accordion-header:hover {
-    background: linear-gradient(90deg, #ffd74e, #e5a837);
-  }
-  /* Active header styling */
-  .accordion-header.active {
-    background: linear-gradient(90deg, #ffd74e, #e5a837);
-  }
-  .accordion-header.active span{
-    display: none;
-  }
-  /* Accordion body */
-  .accordion-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 20px;
-  }
-  /* Open accordion body styling */
-  .accordion-body.open {
-    max-height: 300px; 
-    padding: 15px 20px;
-  }
-  /* Paragraph inside body */
   .accordion-body p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 2;
-    color: white;
-    font-weight: normal;
-    font-family: "Montserrat", serif;
+    font-size: 16px;
   }
-  /* Remove last border */
-  .accordion-item:last-child {
-    border-bottom: none;
+  .accordion-header.active span {
+    font-size: 16px; /* Adjust for small screens */
+    color: white; /* Ensure visibility */
+    font-weight: bold;
   }
-  @media (max-width: 768px){
-    .consult-container{
-        flex-direction: column;
-        width: 100%;
-    }
-    .consult-img img{
-        width: 300px;
-    };
-    .accordion-container h1{
-        font-size: 16px;
-    }
-    .accordion-container p{
-        font-size: 18px;
-    }
-    .accordion-container{
-        width: 300px;
-        margin-left: 0px;
-        margin-top: 30px;
-    }
-    .accordion-header{
-        font-size: 16px;
-    }
-    .accordion-body p{
-        font-size: 16px;
-    }
-    .accordion-header.active span{
-        display: none;
-      }
+}
+
+@media (max-width: 451px) {
+  .consult-container {
+    margin-top: 150px;
   }
+}
+@media (min-width: 452px) and (max-width: 992px){
+  .consult-container{
+    margin-top: 250px !important;
+    flex-direction: column;
+    margin-left: 35px;
+    width: 800px;
+    /* margin: 0 auto; */
+  }
+  .consulting-accordion-container{
+    margin-top: 60px;
+  }
+}

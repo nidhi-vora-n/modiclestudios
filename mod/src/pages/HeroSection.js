@@ -18,7 +18,7 @@ const HeroSection = () => {
   return (
     <div className="hero-container">
       {/* Gradient Circle */}
-      <div className="gradient-circle"></div>
+      <div className="hero-gradient-circle"></div>
 
       {/* Left Content */}
       <div className="hero-content">
@@ -36,7 +36,7 @@ const HeroSection = () => {
             </defs>
             <text fill="#fff" fontSize="14" fontWeight="bold">
               <textPath href="#circlePath">
-                • CHECK OUT OUR TEAM • CHECK OUT OUR TEAM • CHECK OUT NOW
+                • GLIMPSE OUR TEAM • GLIMPSE OUR TEAM HURRY
               </textPath>
             </text>
           </svg>
@@ -47,8 +47,8 @@ const HeroSection = () => {
       {/* Popup Modal */}
       {showPopup && (
         <div className={`popup-overlay ${showPopup ? "show" : ""}`}>
-          <div className="popup-content">
-            <span className="popup-close" onClick={handlePopup}>
+          <div className="hero-popup-content">
+            <span className="hero-popup-close" onClick={handlePopup}>
               &times;
             </span>
             <video controls autoPlay>

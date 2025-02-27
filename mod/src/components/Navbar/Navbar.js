@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
   faInstagram,
+  faLinkedin,
   faTwitter,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -96,21 +98,24 @@ const Navbar = () => {
             <div className="location">
               <strong>Location:</strong>
               <br></br>{" "}
-              <span>Office No 706, Filix Tower, Bhandup, Mumbai - 400078</span>
+              <span><a href="https://maps.app.goo.gl/BHv5qKPYcKgvUwWr9" style={{textDecoration:"none", color:"grey"}}>Office No 706, Filix Tower, Bhandup, Mumbai - 400078</a></span>
             </div>
             <div className="time">
               <strong>Time:</strong>
               <br></br> <span>10:00 AM - 6:00 PM</span>
             </div>
-            <div className="social-links">
-              <a href="#">
+            <div className="nav-social-links">
+              <a href="https://www.facebook.com/modiclestudios" target="_blank">
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faTwitter} />
+              <a href="https://www.linkedin.com/company/modicle-studios/" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/modiclestudios/" target="_blank">
                 <FontAwesomeIcon icon={faInstagram} />
+              </a>
+              <a href="https://www.youtube.com/@modiclestudios9852" target="_blank">
+                <FontAwesomeIcon icon={faYoutube} />
               </a>
             </div>
           </div>

@@ -7,7 +7,8 @@ import Team from '../components/aboutbanner/Team'
 const About = () => {
   return (
     <div>
-      <AboutBanner/>
+      {/* <AboutBanner/> */}
+      <AboutBanner title="ABOUT US" />
       <AboutText/>
       <Board/>
       <Team/>

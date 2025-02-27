@@ -71,18 +71,24 @@
     font-family: "Montserrat", serif; 
     text-align: center;
     font-weight: 700;
-    margin-top:160px;
+    margin-top:100px;
   }
 
-  @media (max-width: 768px){
+  @media(min-width:452px) and (max-width:992px){
     .board-container {
         flex-direction: column;
+        margin-left: 80px;
+        /* margin-top:-40px; */
     }
     .board-container .card{
-        width: 300px;
-        height: 400px;
+        width: 80%;
+        height: 100%;
     }
-    .board-container .content h2 {
+
+    .board-head{
+      margin-left: 60px;
+    }
+    /* .board-container .content h2 {
         font-size: 1rem;
     }
     .board-container .content h3 {
@@ -91,10 +97,18 @@
     .board-container .content p {
         font-size: 14px;
         line-height: normal;
-    }
-    .board-container .content{
+    } */
+    /* .board-container .content{
         height: 20vh;
         margin-top: -200px;
+    } */
+  }
+  @media(max-width:451px){
+    .board-container{
+      /* margin-top: -50px; */
+    }
+    .board-head{
+      margin-top: -150px;
     }
   }
  

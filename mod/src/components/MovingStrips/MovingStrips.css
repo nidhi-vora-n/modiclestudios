@@ -73,4 +73,18 @@
     }
 
   }
+  @media (min-width:452px) and (max-width:992px){
+    .moving-strips-container{
+      margin-left: -30px;
+      width: 120%;
+    }
+    .strip.blue{
+      transform: rotate(-12deg);
+  }
+  .strip.black{
+      transform: rotate(6deg);
+      margin-top: -5%;
+  }
+  }
+
   

@@ -45,6 +45,7 @@
     flex: 0 0 25%; /* Takes 25% of the row */
     max-width: 25%;
     text-align: center;
+    align-content: center;
 }
 
 
@@ -65,7 +66,7 @@
 }
 
 .overlapping-rows .row p {
-    font-size: 0.9rem;
+    font-size: 18px;
     margin: 0;
     line-height: 1.2;
     white-space: nowrap; /* Prevent wrapping */
@@ -113,13 +114,13 @@
 
 .overlapping-rows .row h1 {
     color: #fff;
-    font-size: 7rem;
+    font-size: 6rem;
     margin: 0;
     padding: 0;
     transition: all 0.3s;
     white-space: nowrap;
     font-family: "Montserrat", serif;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 .overlapping-rows .row:hover h1 {
     background: linear-gradient(90deg, #ffd74e, #e5a837);
@@ -178,7 +179,7 @@
 #row4:hover ~ #row5 {
     top: 560px; /* Push row4 down (original top + 80px) */
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     /* Stack rows vertically */
     .overlapping-rows .row {
         display: flex;
@@ -198,6 +199,7 @@
 
     /* .col-lg-3 takes another full row */
     .overlapping-rows .col-lg-3 {
+
         max-width: 100%;
         flex: 0 0 100%; /* Full width for each .col-lg-3 */
         margin-top: 10px; /* Space between .col-lg-3 columns */
@@ -240,4 +242,58 @@
     .overlapping-rows .row {
         height: auto; /* Make sure height doesn't change */
     }
+    .full-link{
+        flex-direction: column !important;
+    }
 }
+.full-link {
+    display: flex;
+    width: 100%;
+    text-decoration: none; /* Ensures no underline */
+    
+}
+
+@media (width: 1280px) {
+    /* Hero Container */
+    .container {
+      max-width: 80% !important;
+    }
+  }
+
+  @media (max-width:451px){
+    .full-link{
+        flex-direction: column !important;
+    }
+    .container{
+        margin-top: -100px !important;
+    }
+    .overlapping-rows .col-lg-6{
+        margin-left: 120px;
+    }
+  }
+
+  @media(min-width:452px) and (max-width:992px){
+    .container{
+        margin-top: -100px !important;
+        margin-left: 100px;
+    }
+    .overlapping-rows .col-lg-6{
+        margin-left: 230px;
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+    .overlapping-rows .col-lg-6 h1{
+        font-size: 48px;
+        margin-left: 10px;
+    }
+
+    .overlapping-rows p{
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+    }
+    .overlapping-rows .row{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+  }

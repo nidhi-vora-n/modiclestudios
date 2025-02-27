@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faHomeAlt, faHomeLg, faHomeUser } from "@fortawesome/free-solid-svg-icons";
 
-const AboutBanner = () => {
+const AboutBanner = ({title}) => {
   return (
     <div className="banner-section">
       {/* Background Video */}
@@ -18,8 +18,8 @@ const AboutBanner = () => {
 
       {/* Overlay Content */}
       <div className="banner-content">
-        <p className="breadcrumb"><FontAwesomeIcon icon={faHomeUser} /><Link to="/" style={{textDecoration:"none", color:"#fff"}}> Home</Link> &gt; <span> About Us</span></p>
-        <h1>ABOUT US</h1>
+        {/* <p className="breadcrumb"><FontAwesomeIcon icon={faHomeUser} /><Link to="/" style={{textDecoration:"none", color:"#fff"}}> Home</Link> &gt; <span> About Us</span></p> */}
+        <h1>{title}</h1>
       </div>
     </div>
   );
